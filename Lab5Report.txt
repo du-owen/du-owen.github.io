@@ -1,4 +1,0 @@
-In Lab Manual 5, we needed 107 LUT for our implementation of the ALU. Here, after implementing the 32-bit adder using our 4-bit adder from Lab 2, the number of LUTs
-increased to 122. Therefore, one can conclude, that the synthesis tool of Vivado indeed chooses the cheapest (smallest) design out of many that still meets the
-programmer's specifications. Because building a 32-bit adder out of 4-bit adders is a quite basic implementation, it isn't really optimized in regards to size and 
-timing compared to Vivado's implementation.
