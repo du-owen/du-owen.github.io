@@ -10,7 +10,7 @@ A personal blog for projects and interesting topics
 <generator>jpmonette/feed</generator>
 <language>en</language>
 <copyright>All rights reserved 2022, Owen Du</copyright>
-<atom:link href="https://du-owen.github.io/feed.xml" rel="self" type="application/rss+xml"/>
+<link href="https://du-owen.github.io/feed.xml" rel="self" type="application/rss+xml"/>
 <item>
 <title>Welcome</title>
 <link>https://du-owen.github.io/blog/prologue</link>
