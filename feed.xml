@@ -6,6 +6,8 @@
 A personal blog for projects and interesting topics
 </description>
 <lastBuildDate>Sun, 20 Mar 2022 00:00:00 GMT</lastBuildDate>
+<docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+<generator>jpmonette/feed</generator>
 <language>en</language>
 <copyright>All rights reserved 2022, Owen Du</copyright>
 <atom:link href="https://du-owen.github.io/feed.xml" rel="self" type="application/rss+xml"/>
