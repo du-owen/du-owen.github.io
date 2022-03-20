@@ -1,7 +1,7 @@
 <rss version="2.0">
 <channel>
 <title>Owen's personal website</title>
-<link>https://du-owen.github.io/blog</link>
+<link>https://du-owen.github.io/#/blog</link>
 <description>
 A personal blog for projects and interesting topics
 </description>
@@ -13,15 +13,15 @@ A personal blog for projects and interesting topics
 <link href="https://du-owen.github.io/feed.xml" rel="self" type="application/rss+xml"/>
 <item>
 <title>Welcome</title>
-<link>https://du-owen.github.io/blog/prologue</link>
-<guid>https://du-owen.github.io/blog/prologue</guid>
+<link>https://du-owen.github.io/#/blog/prologue</link>
+<guid>https://du-owen.github.io/#/blog/prologue</guid>
 <description>Introducing my personal website</description>
 <pubDate>Sat, 19 Mar 2022 00:00:00 GMT</pubDate>
 </item>
 <item>
 <title>My first project: Smallest enclosing circle</title>
-<link>https://du-owen.github.io/blog/sec</link>
-<guid>https://du-owen.github.io/blog/sec</guid>
+<link>https://du-owen.github.io/#/blog/sec</link>
+<guid>https://du-owen.github.io/#/blog/sec</guid>
 <description>Graphical visualization of smallest enclosing circle</description>
 <pubDate>Sun, 20 Mar 2022 00:00:00 GMT</pubDate>
 </item>
