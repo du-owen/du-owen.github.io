@@ -1,0 +1,25 @@
+<rss version="2.0">
+<channel>
+<title>Owen's personal website</title>
+<link>https://du-owen.github.io/blog</link>
+<description>
+A personal blog for projects and interesting topics
+</description>
+<lastBuildDate>Sun, 20 Mar 2022 00:00:00 GMT</lastBuildDate>
+<language>en</language>
+<copyright>All rights reserved 2022, Owen Du</copyright>
+<atom:link href="https://du-owen.github.io/feed.xml" rel="self" type="application/rss+xml"/>
+<item>
+<title>Welcome</title>
+<link>https://du-owen.github.io/blog/prologue</link>
+<guid>https://du-owen.github.io/blog/prologue</guid>
+<pubDate>Sat, 19 Mar 2022 00:00:00 GMT</pubDate>
+</item>
+<item>
+<title>My first project: Smallest enclosing circle</title>
+<link>https://du-owen.github.io/blog/sec</link>
+<guid>https://du-owen.github.io/blog/sec</guid>
+<pubDate>Sun, 20 Mar 2022 00:00:00 GMT</pubDate>
+</item>
+</channel>
+</rss>
