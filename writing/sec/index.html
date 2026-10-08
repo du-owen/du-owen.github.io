@@ -1,0 +1,71 @@
+<!DOCTYPE html><html lang="en" data-side="a"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>My first project: Smallest enclosing circle · Owen Du</title><meta name="description" content="Owen Du"><link rel="icon" href="/favicon.ico?v=7b301701" sizes="any"><link rel="alternate" type="application/rss+xml" title="Owen Du" href="/feed.xml"><!-- Only play the flip when crossing sides; navigation within a side stays instant. --><script>
+      addEventListener("pageswap", (e) => {
+        if (!e.viewTransition || !e.activation || !e.activation.from) return;
+        const side = (url) => {
+          const path = new URL(url).pathname;
+          return path === "/b" || path.startsWith("/b/") ? "b" : "a";
+        };
+        if (side(e.activation.from.url) === side(e.activation.entry.url)) {
+          e.viewTransition.skipTransition();
+        }
+      });
+    </script><!-- External links open in a new tab. Marked on load, and again at click time so links added
+         later (the webring ones, filled in after its script loads) are covered too. --><script>
+      const external = (a) => /^https?:$/.test(a.protocol) && a.origin !== location.origin;
+      const mark = (a) => {
+        if (external(a)) {
+          a.target = "_blank";
+          a.rel = "noopener noreferrer";
+        }
+      };
+      addEventListener("DOMContentLoaded", () => document.querySelectorAll("a[href]").forEach(mark));
+      document.addEventListener("click", (e) => {
+        const a = e.target instanceof Element && e.target.closest("a[href]");
+        if (a) mark(a);
+      }, true);
+    </script><!-- The back link returns to wherever you came from on this site (with your scroll position).
+         Opened directly, or from another site, it just follows its link to the parent page. --><script>
+      document.addEventListener("click", (e) => {
+        const a = e.target instanceof Element && e.target.closest("a.back");
+        if (!a || e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+        let from;
+        try {
+          from = new URL(document.referrer);
+        } catch {
+          return;
+        }
+        if (from.origin === location.origin && from.href !== location.href && history.length > 1) {
+          e.preventDefault();
+          history.back();
+        }
+      });
+    </script><link rel="stylesheet" href="/_astro/Side.DDgIm-ge.css"></head><body><a class="back" href="/#writing">← back</a><header class="top"><span class="names"><a class="name" href="/" aria-current="page">Owen Du</a><a class="name" href="/cv/">cv</a></span><nav><a href="/b/">B side ↻</a></nav></header><main><h1>My first project: Smallest enclosing circle</h1><p class="dim">2022-03-20</p><p><em>Originally posted on my first, React-based site. The <a href="/projects/sec/">demo</a> has since been rewritten in plain SVG, so the Konva and React parts below describe the original.</em></p>
+<p>The following paragraph gives an idea of the given problem:</p>
+<blockquote>
+<p>The smallest-circle problem (also known as minimum covering circle problem, bounding circle problem, smallest enclosing circle problem) is a mathematical problem of computing the smallest circle that contains all of a given set of points in the Euclidean plane. (Wikipedia)</p>
+</blockquote>
+<p>I learned about this problem in my second semester in the course “Algorithms and Probability”, where we discussed several algorithms on how to solve it. In my project, I decided to implement two easy but elegant randomized algorithms, first a naive randomized algorithm that chooses random points and second an optimized version that “learns” after choosing random points.</p>
+<p>When you go to the <a href="/projects/sec/">project</a>, the description of the algorithm can be summarised by following lemma and pseudocode:</p>
+<blockquote>
+<p>For any finite P on a canvas with |P| ≥ 3 there exists a subset Q ⊆ P, such that |Q|=3 and smallest enclosing circle of Q is equal to P.</p>
+</blockquote>
+<p>Naive algorithm:</p>
+<pre><code>while
+    choose Q ⊆ P with |Q| = |N| randomly
+    calculate C(Q)
+    if P contained in C(Q) then
+        return C(Q)
+</code></pre>
+<p>Smart algorithm:</p>
+<pre><code>while
+    choose Q ⊆ P with |Q| = |N| randomly
+    calculate C(Q)
+    if P contained in C(Q) then
+        return C(Q)
+    double points in P outside of C(Q)
+</code></pre>
+<p>The naive algorithm has an expected runtime of O(n<sup>4</sup>) whereas the smart algorithm has an expected runtime of O(n log n) obtained through probabilistic runtime analysis not covered here.</p>
+<p>One thing I struggled a lot with when implementing the algorithms was floating point precision. As the canvas uses integers for position and circle radius, it is hard to implement the circle finding algorithm without floats. Especially when checking whether all points are contained in the circle, there were a lot of imprecisions, thus I provided a rather bandaid fix that will maybe be improved sometime.</p>
+<p>For the canvas I used a Javascript library called Konva. At first it was very difficult to use, as documentation for React is poor because the library is mostly managed by one person and is originally designed for plain Javascript. Also, as I know very little about how plain Javascript is used to build websites I had no idea how to translate from Javascript to React. Fortunately, there is a small Discord server where the creator of Konva is active, so for specific questions where I couldn’t find an answer online I had a source for help.</p>
+<p>Lastly, feel free to contact me in case you find any bugs regarding the implementation. For every calculation the array of points is printed on the console, so I would be glad if that information was relayed to me as well if the bug applies to the calculation of a circle. Have fun!</p>
+</main></body></html>

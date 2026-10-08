@@ -1,0 +1,56 @@
+<!DOCTYPE html><html lang="en" data-side="a"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Welcome · Owen Du</title><meta name="description" content="Owen Du"><link rel="icon" href="/favicon.ico?v=7b301701" sizes="any"><link rel="alternate" type="application/rss+xml" title="Owen Du" href="/feed.xml"><!-- Only play the flip when crossing sides; navigation within a side stays instant. --><script>
+      addEventListener("pageswap", (e) => {
+        if (!e.viewTransition || !e.activation || !e.activation.from) return;
+        const side = (url) => {
+          const path = new URL(url).pathname;
+          return path === "/b" || path.startsWith("/b/") ? "b" : "a";
+        };
+        if (side(e.activation.from.url) === side(e.activation.entry.url)) {
+          e.viewTransition.skipTransition();
+        }
+      });
+    </script><!-- External links open in a new tab. Marked on load, and again at click time so links added
+         later (the webring ones, filled in after its script loads) are covered too. --><script>
+      const external = (a) => /^https?:$/.test(a.protocol) && a.origin !== location.origin;
+      const mark = (a) => {
+        if (external(a)) {
+          a.target = "_blank";
+          a.rel = "noopener noreferrer";
+        }
+      };
+      addEventListener("DOMContentLoaded", () => document.querySelectorAll("a[href]").forEach(mark));
+      document.addEventListener("click", (e) => {
+        const a = e.target instanceof Element && e.target.closest("a[href]");
+        if (a) mark(a);
+      }, true);
+    </script><!-- The back link returns to wherever you came from on this site (with your scroll position).
+         Opened directly, or from another site, it just follows its link to the parent page. --><script>
+      document.addEventListener("click", (e) => {
+        const a = e.target instanceof Element && e.target.closest("a.back");
+        if (!a || e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+        let from;
+        try {
+          from = new URL(document.referrer);
+        } catch {
+          return;
+        }
+        if (from.origin === location.origin && from.href !== location.href && history.length > 1) {
+          e.preventDefault();
+          history.back();
+        }
+      });
+    </script><link rel="stylesheet" href="/_astro/Side.DDgIm-ge.css"></head><body><a class="back" href="/#writing">← back</a><header class="top"><span class="names"><a class="name" href="/" aria-current="page">Owen Du</a><a class="name" href="/cv/">cv</a></span><nav><a href="/b/">B side ↻</a></nav></header><main><h1>Welcome</h1><p class="dim">2022-03-19</p><p><em>Originally posted on my first, React-based site. Kept as written.</em></p>
+<p>Welcome to my personal site, this is my first post where I will introduce the site and myself.</p>
+<p>The idea for a personal website was already long in the making. After learning some geometric algorithms in my second semester, I wanted to implement a visualization of them. However, as many of my fellow ETH students know, it’s hard to find motivation and be productive in our 3 weeks of holiday in sommer and 2 weeks of holiday (if we are lucky) in winter. Thus, this idea got indefinitely postponed. The final push came just this year, after registering for a Hackathon. I knew I had to prepare myself in some way, as I had next to no experience in Javascript and my HTML and CSS skills were extremely rusty. So, in the holiday after the 3rd semester I started working on this website.</p>
+<p>After researching Javascript libraries/frameworks I was recommended React, as it is the most commonly used Javascript library right now, thus providing an abundance of resources. After watching a 10-hour React tutorial and another tutorial on how to create a React website, I got on my way to create components, the UI and finally my first project.</p>
+<p>My plan for this website is to implement some more visualization projects. As ETH is notoriously theory-heavy, having a side project where you actually do some coding is something I recommend for university students that need this type of exchange.</p>
+<p>Most of the UI and interface is designed by me. The fancy cards, buttons and other components are from material UI, a great library by Google for premade components. For my first project (<a href="/projects/sec/">smallest enclosing circle</a>) I used a React library for the canvas which I will go into more in my <a href="/writing/sec/">corresponding project blog post</a>.</p>
+<p>Here are some of my key takeaways from building my first website:</p>
+<ul>
+<li>CSS was extremely hard to get right, took a lot of research and asking friends to understand the basics, and now I’m at the point where I just use <code>display: flex</code> for everything</li>
+<li>I will probably never become a web developer, even though it’s fun working on something and visually seeing the progress, I feel like I could do a lot more with my (hopefully in the future) CS degree</li>
+<li>React asynchronous state updates using the useState hook are very annoying, as it messes up some function logic. In general I saw that Javascript runs quite differently compared to languages I learnt so far in university (Java, C, C++), but I did not have enough time to dive deeper, which made me struggle with some features of JS like Promises and async functions.</li>
+</ul>
+<p>Now a little bit about me: you will some information about me in the ‘About’ tab. As I am not very fond of writing and also not particularly good at it, new blog posts here will probably be very rare, except for when a new project comes out. Addtionally having to do all the formatting and editing myself without an application is quite cumbersome and time-consuming.</p>
+<p>That’s all I can think about for now, I hope new ETH students can benefit from visualizations of algorithms they will learn in lecture. Whether or not this site will get some traffic, having an own place on the internet that showcases your work is rewarding enough as a CS student.</p>
+</main></body></html>

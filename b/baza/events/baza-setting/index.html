@@ -1,0 +1,42 @@
+<!DOCTYPE html><html lang="en" data-side="b"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>BAZA x SETTING Groundless Factory Takeover · BAZA.8ZA</title><meta name="description" content="Owen Du"><link rel="icon" href="/favicon.ico?v=7b301701" sizes="any"><!-- Only play the flip when crossing sides; navigation within a side stays instant. --><script>
+      addEventListener("pageswap", (e) => {
+        if (!e.viewTransition || !e.activation || !e.activation.from) return;
+        const side = (url) => {
+          const path = new URL(url).pathname;
+          return path === "/b" || path.startsWith("/b/") ? "b" : "a";
+        };
+        if (side(e.activation.from.url) === side(e.activation.entry.url)) {
+          e.viewTransition.skipTransition();
+        }
+      });
+    </script><!-- External links open in a new tab. Marked on load, and again at click time so links added
+         later (the webring ones, filled in after its script loads) are covered too. --><script>
+      const external = (a) => /^https?:$/.test(a.protocol) && a.origin !== location.origin;
+      const mark = (a) => {
+        if (external(a)) {
+          a.target = "_blank";
+          a.rel = "noopener noreferrer";
+        }
+      };
+      addEventListener("DOMContentLoaded", () => document.querySelectorAll("a[href]").forEach(mark));
+      document.addEventListener("click", (e) => {
+        const a = e.target instanceof Element && e.target.closest("a[href]");
+        if (a) mark(a);
+      }, true);
+    </script><!-- The back link returns to wherever you came from on this site (with your scroll position).
+         Opened directly, or from another site, it just follows its link to the parent page. --><script>
+      document.addEventListener("click", (e) => {
+        const a = e.target instanceof Element && e.target.closest("a.back");
+        if (!a || e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+        let from;
+        try {
+          from = new URL(document.referrer);
+        } catch {
+          return;
+        }
+        if (from.origin === location.origin && from.href !== location.href && history.length > 1) {
+          e.preventDefault();
+          history.back();
+        }
+      });
+    </script><link rel="stylesheet" href="/_astro/Side.DDgIm-ge.css"></head><body><a class="back" href="/b/baza/events/#baza-setting">← back</a><header class="top"><span class="names"><a class="name" href="/b/">du du</a><a class="name" href="/b/baza/" aria-current="page">BAZA.8ZA</a></span><nav><a href="/">A side ↻</a></nav></header><main><article class="night"><h1>BAZA x SETTING Groundless Factory Takeover</h1><p class="dim">2026-04-17 · Groundless Factory, Beijing</p><p class="lineup"><span class="dim">lineup</span> ShengChou · TUTU · du du B2B JIAIAAAA · NOT OBEY · RICE&#39;N&#39;BEANS · Griffe Rose</p><a class="poster-large" href="/_astro/baza-setting.31bOlQFA_1xBkai.webp" target="_blank" rel="noopener noreferrer"><img src="/_astro/baza-setting.31bOlQFA_Z2pmYb7.webp" alt="poster: BAZA x SETTING Groundless Factory Takeover" loading="lazy" decoding="async" width="1200" height="1607"></a><!-- TODO(owen): write the description and add photos in this event's file under content/events/ --></article><h2>recordings</h2><ul class="entries"><li><span class="date">2026-04-17</span><span><a href="https://www.youtube.com/watch?v=kkJZhF-mWe0&amp;list=RDkkJZhF-mWe0&amp;start_radio=1&amp;" target="_blank" rel="noopener noreferrer">BAZA x SETTING Groundless Factory Takeover</a><span class="meta">youtube</span><iframe title="BAZA x SETTING Groundless Factory Takeover (player)" width="560" height="315" style="width:min(560px,100%);height:auto;aspect-ratio:560/315" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube-nocookie.com/embed/kkJZhF-mWe0" loading="lazy" class="player-inline"></iframe><script type="module">for(let e of document.querySelectorAll(`details.player`))e.addEventListener(`toggle`,()=>{let t=e.querySelector(`iframe[data-src]`);e.open&&t&&!t.getAttribute(`src`)&&(t.src=t.dataset.src)});</script></span></li></ul></main></body></html>

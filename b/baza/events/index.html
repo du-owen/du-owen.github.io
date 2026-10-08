@@ -1,0 +1,42 @@
+<!DOCTYPE html><html lang="en" data-side="b"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>events · BAZA.8ZA</title><meta name="description" content="Owen Du"><link rel="icon" href="/favicon.ico?v=7b301701" sizes="any"><!-- Only play the flip when crossing sides; navigation within a side stays instant. --><script>
+      addEventListener("pageswap", (e) => {
+        if (!e.viewTransition || !e.activation || !e.activation.from) return;
+        const side = (url) => {
+          const path = new URL(url).pathname;
+          return path === "/b" || path.startsWith("/b/") ? "b" : "a";
+        };
+        if (side(e.activation.from.url) === side(e.activation.entry.url)) {
+          e.viewTransition.skipTransition();
+        }
+      });
+    </script><!-- External links open in a new tab. Marked on load, and again at click time so links added
+         later (the webring ones, filled in after its script loads) are covered too. --><script>
+      const external = (a) => /^https?:$/.test(a.protocol) && a.origin !== location.origin;
+      const mark = (a) => {
+        if (external(a)) {
+          a.target = "_blank";
+          a.rel = "noopener noreferrer";
+        }
+      };
+      addEventListener("DOMContentLoaded", () => document.querySelectorAll("a[href]").forEach(mark));
+      document.addEventListener("click", (e) => {
+        const a = e.target instanceof Element && e.target.closest("a[href]");
+        if (a) mark(a);
+      }, true);
+    </script><!-- The back link returns to wherever you came from on this site (with your scroll position).
+         Opened directly, or from another site, it just follows its link to the parent page. --><script>
+      document.addEventListener("click", (e) => {
+        const a = e.target instanceof Element && e.target.closest("a.back");
+        if (!a || e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+        let from;
+        try {
+          from = new URL(document.referrer);
+        } catch {
+          return;
+        }
+        if (from.origin === location.origin && from.href !== location.href && history.length > 1) {
+          e.preventDefault();
+          history.back();
+        }
+      });
+    </script><link rel="stylesheet" href="/_astro/Side.DDgIm-ge.css"></head><body><a class="back" href="/b/baza/#past">← back</a><header class="top"><span class="names"><a class="name" href="/b/">du du</a><a class="name" href="/b/baza/" aria-current="page">BAZA.8ZA</a></span><nav><a href="/">A side ↻</a></nav></header><main><h1>events</h1><h2>past events</h2><ul class="entries"><li id="baza-silk" class="has-poster poster-left"><span class="date">2026-04-24</span><span><a href="/b/baza/events/baza-silk/">BAZA x SILK present: CAM GIRL</a><span class="meta">DADA, Beijing</span><span class="lineup"><span class="dim">lineup</span> VomitBot · Kumanoi (Live) · Puzzy Stack · CAM GIRL · du du</span></span><a class="poster" style="aspect-ratio:2160/2700" href="/b/baza/events/baza-silk/"><img src="/_astro/baza-silk.Bk87VZpW_1KpwRE.webp" alt="poster: BAZA x SILK present: CAM GIRL" loading="lazy" decoding="async" width="800" height="1000"></a></li><li id="baza-setting" class="has-poster poster-right"><span class="date">2026-04-17</span><span><a href="/b/baza/events/baza-setting/">BAZA x SETTING Groundless Factory Takeover</a><span class="meta">Groundless Factory, Beijing</span><span class="lineup"><span class="dim">lineup</span> ShengChou · TUTU · du du B2B JIAIAAAA · NOT OBEY · RICE&#39;N&#39;BEANS · Griffe Rose</span></span><a class="poster" style="aspect-ratio:1792/2400" href="/b/baza/events/baza-setting/"><img src="/_astro/baza-setting.31bOlQFA_Z2djT9v.webp" alt="poster: BAZA x SETTING Groundless Factory Takeover" loading="lazy" decoding="async" width="800" height="1071"></a></li><li id="baza-4eva" class="has-poster poster-left"><span class="date">2026-03-14</span><span><a href="/b/baza/events/baza-4eva/">BAZA presents: 4eva Debut Show</a><span class="meta">MADVERSE, Beijing</span><span class="lineup"><span class="dim">lineup</span> Tea Party · 辣辣 · du du · PURP · KAIYI · CHINELL</span></span><a class="poster" style="aspect-ratio:1080/1523" href="/b/baza/events/baza-4eva/"><img src="/_astro/baza-4eva.BI8jS578_YCAK0.webp" alt="poster: BAZA presents: 4eva Debut Show" loading="lazy" decoding="async" width="800" height="1128"></a></li><li id="baza-debut" class="has-poster poster-right"><span class="date">2025-11-29</span><span><a href="/b/baza/events/baza-debut/">BAZA Beijing debut</a><span class="meta">DADA, Beijing</span><span class="lineup"><span class="dim">lineup</span> Puzzy Stack · du du · Ana1 · 辣辣 · Quisho</span></span><a class="poster" style="aspect-ratio:1206/1599" href="/b/baza/events/baza-debut/"><img src="/_astro/baza-debut.CuFtbosU_226xtI.webp" alt="poster: BAZA Beijing debut" loading="lazy" decoding="async" width="800" height="1061"></a></li><li id="baza-0" class="has-poster poster-left"><span class="date">2025-07-19</span><span><a href="/b/baza/events/baza-0/">BAZA debut</a><span class="meta">Provitreff, Zürich</span><span class="lineup"><span class="dim">lineup</span> UDAMA · fengstar · ZOY4ABIT · du du</span></span><a class="poster" style="aspect-ratio:1078/1505" href="/b/baza/events/baza-0/"><img src="/_astro/baza-0.BzoFNZef_Z1eMPYY.webp" alt="poster: BAZA debut" loading="lazy" decoding="async" width="800" height="1117"></a></li></ul></main></body></html>

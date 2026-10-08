@@ -1,0 +1,42 @@
+<!DOCTYPE html><html lang="en" data-side="a"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>cv · Owen Du</title><meta name="description" content="CV of Owen Du: ML researcher, embodied AI and AI safety."><link rel="icon" href="/favicon.ico?v=7b301701" sizes="any"><link rel="alternate" type="application/rss+xml" title="Owen Du" href="/feed.xml"><!-- Only play the flip when crossing sides; navigation within a side stays instant. --><script>
+      addEventListener("pageswap", (e) => {
+        if (!e.viewTransition || !e.activation || !e.activation.from) return;
+        const side = (url) => {
+          const path = new URL(url).pathname;
+          return path === "/b" || path.startsWith("/b/") ? "b" : "a";
+        };
+        if (side(e.activation.from.url) === side(e.activation.entry.url)) {
+          e.viewTransition.skipTransition();
+        }
+      });
+    </script><!-- External links open in a new tab. Marked on load, and again at click time so links added
+         later (the webring ones, filled in after its script loads) are covered too. --><script>
+      const external = (a) => /^https?:$/.test(a.protocol) && a.origin !== location.origin;
+      const mark = (a) => {
+        if (external(a)) {
+          a.target = "_blank";
+          a.rel = "noopener noreferrer";
+        }
+      };
+      addEventListener("DOMContentLoaded", () => document.querySelectorAll("a[href]").forEach(mark));
+      document.addEventListener("click", (e) => {
+        const a = e.target instanceof Element && e.target.closest("a[href]");
+        if (a) mark(a);
+      }, true);
+    </script><!-- The back link returns to wherever you came from on this site (with your scroll position).
+         Opened directly, or from another site, it just follows its link to the parent page. --><script>
+      document.addEventListener("click", (e) => {
+        const a = e.target instanceof Element && e.target.closest("a.back");
+        if (!a || e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+        let from;
+        try {
+          from = new URL(document.referrer);
+        } catch {
+          return;
+        }
+        if (from.origin === location.origin && from.href !== location.href && history.length > 1) {
+          e.preventDefault();
+          history.back();
+        }
+      });
+    </script><link rel="stylesheet" href="/_astro/Side.DDgIm-ge.css"></head><body><header class="top"><span class="names"><a class="name" href="/">Owen Du</a><a class="name" href="/cv/" aria-current="page">cv</a></span><nav><a href="/b/">B side ↻</a></nav></header><main><p class="dim">ML researcher · embodied AI &amp; AI safety</p><p>MSc student at ETH Zurich and visiting researcher at Tsinghua, working on vision-language-action (VLA) models and diffusion language models. Pruned up to 90% of VLA visual tokens while retaining success rate. Completed the ARENA curriculum (mechanistic interpretability, LLM evals, alignment science).</p><h2 id="education">education</h2><ul class="entries"><li><span class="date">2023 – now</span><span>ETH Zurich<span class="meta">MSc Data Science · GPA 5.63/6 · embodied AI, LLMs, computer vision</span></span></li><li><span class="date">2025 – 2026</span><span>Tsinghua University, Beijing<span class="meta">study abroad · robotics, systems, control, Chinese</span></span></li><li><span class="date">2020 – 2023</span><span>ETH Zurich<span class="meta">BSc Computer Science · GPA 5.63/6, top 5% · exchange at the University of Washington, Seattle (2022)</span></span></li></ul><h2 id="experience">experience</h2><ul class="entries"><li><span class="date">2026 – now</span><span>Tsinghua University (THU LeapLab), Beijing<span class="meta">visiting researcher · diffusion language models and VLA models, with Prof. Gao Huang</span></span></li><li><span class="date">2025</span><span>Oracle, Zurich<span class="meta">research assistant · AI coding assistant for the Oracle Multilingual Engine; LLM benchmarks improved 2x with RAG, MCP and agentic loops</span></span></li><li><span class="date">2024 – 2025</span><span>think-cell, Berlin<span class="meta">machine learning intern · Attention UNets for a bar chart OCR tool; generative layout models trained on 3M+ slides</span></span></li></ul><h2 id="projects">projects</h2><ul class="entries"><li><span class="date">thesis</span><span><a href="https://github.com/du-owen/VLA-ACL">Vision token pruning for VLA models</a><span class="meta">submitted · prunes up to 90% of visual tokens and retains the success rate in simulation and real-world tests; beats the state of the art in FLOPs and latency</span></span></li><li><span class="date">course</span><span>ARENA 3.0, Alignment Research Engineer Accelerator<span class="meta">all chapters: transformer interpretability, LLM evaluations, alignment science, RL</span></span></li><li><span class="date">1st place</span><span><a href="https://github.com/du-owen/datathon24">ETH Datathon Kaggle competition</a><span class="meta">YOLO/ResNet pipeline extracting pie chart percentages, within 24 hours</span></span></li><li><span class="date">thesis</span><span><a href="https://github.com/du-owen/BT">LLM-augmented contrastive learning</a><span class="meta">5M+ paraphrases generated with LLMs; fine-tuned BERT models beat the benchmarks on semantic similarity</span></span></li></ul><h2 id="skills">skills</h2><div class="skills"><p><span class="dim">interests</span> embodied AI, VLAs, world models, robot learning, mechanistic interpretability, alignment, LLM evals</p><p><span class="dim">interp/safety</span> TransformerLens, sparse autoencoders (SAEs), activation patching, Inspect (LLM evals)</p><p><span class="dim">ai/ml</span> PyTorch, NumPy, scikit-learn, transformers, diffusion models, reinforcement learning, RAG, MCP</p><p><span class="dim">programming</span> Python, C++, Java, SQL, JavaScript; Git, Linux, Docker, LaTeX</p><p><span class="dim">languages</span> German (native), Chinese (business proficient), English (C2), French (B2)</p></div></main></body></html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html><html lang="en" data-side="a"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>research · Owen Du</title><meta name="description" content="Owen Du"><link rel="icon" href="/favicon.ico?v=7b301701" sizes="any"><link rel="alternate" type="application/rss+xml" title="Owen Du" href="/feed.xml"><!-- Only play the flip when crossing sides; navigation within a side stays instant. --><script>
+      addEventListener("pageswap", (e) => {
+        if (!e.viewTransition || !e.activation || !e.activation.from) return;
+        const side = (url) => {
+          const path = new URL(url).pathname;
+          return path === "/b" || path.startsWith("/b/") ? "b" : "a";
+        };
+        if (side(e.activation.from.url) === side(e.activation.entry.url)) {
+          e.viewTransition.skipTransition();
+        }
+      });
+    </script><!-- External links open in a new tab. Marked on load, and again at click time so links added
+         later (the webring ones, filled in after its script loads) are covered too. --><script>
+      const external = (a) => /^https?:$/.test(a.protocol) && a.origin !== location.origin;
+      const mark = (a) => {
+        if (external(a)) {
+          a.target = "_blank";
+          a.rel = "noopener noreferrer";
+        }
+      };
+      addEventListener("DOMContentLoaded", () => document.querySelectorAll("a[href]").forEach(mark));
+      document.addEventListener("click", (e) => {
+        const a = e.target instanceof Element && e.target.closest("a[href]");
+        if (a) mark(a);
+      }, true);
+    </script><!-- The back link returns to wherever you came from on this site (with your scroll position).
+         Opened directly, or from another site, it just follows its link to the parent page. --><script>
+      document.addEventListener("click", (e) => {
+        const a = e.target instanceof Element && e.target.closest("a.back");
+        if (!a || e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+        let from;
+        try {
+          from = new URL(document.referrer);
+        } catch {
+          return;
+        }
+        if (from.origin === location.origin && from.href !== location.href && history.length > 1) {
+          e.preventDefault();
+          history.back();
+        }
+      });
+    </script><link rel="stylesheet" href="/_astro/Side.DDgIm-ge.css"></head><body><a class="back" href="/#research">← back</a><header class="top"><span class="names"><a class="name" href="/" aria-current="page">Owen Du</a><a class="name" href="/cv/">cv</a></span><nav><a href="/b/">B side ↻</a></nav></header><main><h1>research</h1><ul class="entries"><li class="research"><span class="date">2026</span><div><div class="research-title">VLA-ACL: Action-Consistent Visual Token Pruning for Efficient Vision-Language-Action Models</div><span class="meta">submitted</span><div class="research-body"><p>Using an action consistency objective, we prune up to 90% of visual tokens during VLA inference, reducing computations by 75% while retaining performance in both simulation and real-world manipulation tasks.</p>
+</div><div class="research-links"><a href="https://arxiv.org/abs/2610.08133">arxiv</a> · <a href="https://github.com/du-owen/VLA-ACL">github</a> · <a href="https://huggingface.co/owendudu/VLA-ACL">huggingface</a></div></div></li></ul></main></body></html>

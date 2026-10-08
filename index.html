@@ -1,1 +1,52 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"/><link rel="icon" href="/favicon.ico"/><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap" rel="stylesheet"><meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="theme-color" content="#000000"/><meta name="description" content="Web site created using create-react-app"/><link rel="apple-touch-icon" href="/logo192.png"/><link rel="manifest" href="/manifest.json"/><title>Owen's Personal Site</title><script defer="defer" src="/static/js/main.e0e07d6c.js"></script><link href="/static/css/main.c701dca5.css" rel="stylesheet"></head><body><noscript>You need to enable JavaScript to run this app.</noscript><div id="root"></div></body></html>
+<!DOCTYPE html><html lang="en" data-side="a"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Owen Du</title><meta name="description" content="Owen Du. MSc Data Science at ETH Zurich."><link rel="icon" href="/favicon.ico?v=7b301701" sizes="any"><link rel="alternate" type="application/rss+xml" title="Owen Du" href="/feed.xml"><!-- Only play the flip when crossing sides; navigation within a side stays instant. --><script>
+      addEventListener("pageswap", (e) => {
+        if (!e.viewTransition || !e.activation || !e.activation.from) return;
+        const side = (url) => {
+          const path = new URL(url).pathname;
+          return path === "/b" || path.startsWith("/b/") ? "b" : "a";
+        };
+        if (side(e.activation.from.url) === side(e.activation.entry.url)) {
+          e.viewTransition.skipTransition();
+        }
+      });
+    </script><!-- External links open in a new tab. Marked on load, and again at click time so links added
+         later (the webring ones, filled in after its script loads) are covered too. --><script>
+      const external = (a) => /^https?:$/.test(a.protocol) && a.origin !== location.origin;
+      const mark = (a) => {
+        if (external(a)) {
+          a.target = "_blank";
+          a.rel = "noopener noreferrer";
+        }
+      };
+      addEventListener("DOMContentLoaded", () => document.querySelectorAll("a[href]").forEach(mark));
+      document.addEventListener("click", (e) => {
+        const a = e.target instanceof Element && e.target.closest("a[href]");
+        if (a) mark(a);
+      }, true);
+    </script><!-- The back link returns to wherever you came from on this site (with your scroll position).
+         Opened directly, or from another site, it just follows its link to the parent page. --><script>
+      document.addEventListener("click", (e) => {
+        const a = e.target instanceof Element && e.target.closest("a.back");
+        if (!a || e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+        let from;
+        try {
+          from = new URL(document.referrer);
+        } catch {
+          return;
+        }
+        if (from.origin === location.origin && from.href !== location.href && history.length > 1) {
+          e.preventDefault();
+          history.back();
+        }
+      });
+    </script><link rel="stylesheet" href="/_astro/Side.DDgIm-ge.css"></head><body><header class="top"><span class="names"><a class="name" href="/" aria-current="page">Owen Du</a><a class="name" href="/cv/">cv</a></span><nav><a href="/b/">B side ↻</a></nav></header><main><p>Hi, I'm Owen and currently a MSc Data Science at ETH Zurich and finished my Bachelor's in Computer Science at ETH. My interests outside of Computer Science include sports (basketball, running, table tennis) and music (electric guitar, <a href="/b/">DJing</a>).</p><h2 id="research"><a class="section-link" href="/research/">research</a></h2><ul class="entries"><li class="research"><span class="date">2026</span><div><div class="research-title">VLA-ACL: Action-Consistent Visual Token Pruning for Efficient Vision-Language-Action Models</div><span class="meta">submitted</span><div class="research-body"><p>Using an action consistency objective, we prune up to 90% of visual tokens during VLA inference, reducing computations by 75% while retaining performance in both simulation and real-world manipulation tasks.</p>
+</div><div class="research-links"><a href="https://arxiv.org/abs/2610.08133">arxiv</a> · <a href="https://github.com/du-owen/VLA-ACL">github</a> · <a href="https://huggingface.co/owendudu/VLA-ACL">huggingface</a></div></div></li></ul><h2 id="writing"><a class="section-link" href="/writing/">writing</a></h2><ul class="entries"><li><span class="date">2026-10-05</span><a href="/writing/update/">Website &amp; Life update</a></li><li><span class="date">2022-03-20</span><a href="/writing/sec/">My first project: Smallest enclosing circle</a></li><li><span class="date">2022-03-19</span><a href="/writing/welcome/">Welcome</a></li></ul><h2 id="projects"><a class="section-link" href="/projects/">projects</a></h2><ul class="entries"><li><span class="date">2022</span><span><a href="/projects/sec/">smallest enclosing circle</a><span class="meta">interactive demo of two randomized algorithms</span></span></li></ul><h2 id="elsewhere">elsewhere</h2><p><a href="https://github.com/du-owen">github</a> · <a href="https://www.linkedin.com/in/owen-du">linkedin</a> · <a href="mailto:owendu@ethz.ch">email</a></p></main><footer><p class="ring"><a id="ring-prev" href="https://polyring.ch" aria-label="previous site in the webring">←</a><a href="https://polyring.ch">polyring</a> webring<a id="ring-next" href="https://polyring.ch" aria-label="next site in the webring">→</a></p><!-- Polyring's embed knows the live member list; we only borrow its prev/next links. --><script>
+      const s = document.createElement("script");
+      s.src = "https://polyring.ch/embed.js";
+      s.onload = () => {
+        const ring = document.createElement("webring-banner");
+        document.getElementById("ring-prev").href = ring.previousUrl;
+        document.getElementById("ring-next").href = ring.nextUrl;
+      };
+      document.head.append(s);
+    </script></footer></body></html>

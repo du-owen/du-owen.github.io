@@ -1,0 +1,47 @@
+<!DOCTYPE html><html lang="en" data-side="a"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Website &amp; Life update · Owen Du</title><meta name="description" content="Owen Du"><link rel="icon" href="/favicon.ico?v=7b301701" sizes="any"><link rel="alternate" type="application/rss+xml" title="Owen Du" href="/feed.xml"><!-- Only play the flip when crossing sides; navigation within a side stays instant. --><script>
+      addEventListener("pageswap", (e) => {
+        if (!e.viewTransition || !e.activation || !e.activation.from) return;
+        const side = (url) => {
+          const path = new URL(url).pathname;
+          return path === "/b" || path.startsWith("/b/") ? "b" : "a";
+        };
+        if (side(e.activation.from.url) === side(e.activation.entry.url)) {
+          e.viewTransition.skipTransition();
+        }
+      });
+    </script><!-- External links open in a new tab. Marked on load, and again at click time so links added
+         later (the webring ones, filled in after its script loads) are covered too. --><script>
+      const external = (a) => /^https?:$/.test(a.protocol) && a.origin !== location.origin;
+      const mark = (a) => {
+        if (external(a)) {
+          a.target = "_blank";
+          a.rel = "noopener noreferrer";
+        }
+      };
+      addEventListener("DOMContentLoaded", () => document.querySelectorAll("a[href]").forEach(mark));
+      document.addEventListener("click", (e) => {
+        const a = e.target instanceof Element && e.target.closest("a[href]");
+        if (a) mark(a);
+      }, true);
+    </script><!-- The back link returns to wherever you came from on this site (with your scroll position).
+         Opened directly, or from another site, it just follows its link to the parent page. --><script>
+      document.addEventListener("click", (e) => {
+        const a = e.target instanceof Element && e.target.closest("a.back");
+        if (!a || e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+        let from;
+        try {
+          from = new URL(document.referrer);
+        } catch {
+          return;
+        }
+        if (from.origin === location.origin && from.href !== location.href && history.length > 1) {
+          e.preventDefault();
+          history.back();
+        }
+      });
+    </script><link rel="stylesheet" href="/_astro/Side.DDgIm-ge.css"></head><body><a class="back" href="/#writing">← back</a><header class="top"><span class="names"><a class="name" href="/" aria-current="page">Owen Du</a><a class="name" href="/cv/">cv</a></span><nav><a href="/b/">B side ↻</a></nav></header><main><h1>Website &amp; Life update</h1><p class="dim">2026-10-05</p><p>Just finished a year at Tsinghua University, first semester I took some Chinese language classes and robotics courses. Second semester I wrote my Master’s Thesis at LeapLab, supervised by Prof. Gao Huang, working on diffusion LLMs and efficient inference for VLAs. Our research is public on <a href="https://arxiv.org">arxiv</a>.</p>
+<p>In China, we managed quite a few <a href="/b/baza/">events</a>, managed to play in all the big venues in Beijing and collabed with great artists such as purp and camgirl.</p>
+<p>Now, I am looking forward to new full-time opportunities, focusing on AI safety or embodied AI roles. The reason I want to enter AI safety is because I think it’s one of the most urgent problems for humanity to solve currently.</p>
+<p>Meanwhile, I redid my personal website. I opted for a minimal look.</p>
+<p>Keep posted on current research, new baza events, upcoming sets of mine here!</p>
+</main></body></html>

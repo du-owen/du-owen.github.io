@@ -1,0 +1,42 @@
+<!DOCTYPE html><html lang="en" data-side="b"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>BAZA x SILK present: CAM GIRL · BAZA.8ZA</title><meta name="description" content="Owen Du"><link rel="icon" href="/favicon.ico?v=7b301701" sizes="any"><!-- Only play the flip when crossing sides; navigation within a side stays instant. --><script>
+      addEventListener("pageswap", (e) => {
+        if (!e.viewTransition || !e.activation || !e.activation.from) return;
+        const side = (url) => {
+          const path = new URL(url).pathname;
+          return path === "/b" || path.startsWith("/b/") ? "b" : "a";
+        };
+        if (side(e.activation.from.url) === side(e.activation.entry.url)) {
+          e.viewTransition.skipTransition();
+        }
+      });
+    </script><!-- External links open in a new tab. Marked on load, and again at click time so links added
+         later (the webring ones, filled in after its script loads) are covered too. --><script>
+      const external = (a) => /^https?:$/.test(a.protocol) && a.origin !== location.origin;
+      const mark = (a) => {
+        if (external(a)) {
+          a.target = "_blank";
+          a.rel = "noopener noreferrer";
+        }
+      };
+      addEventListener("DOMContentLoaded", () => document.querySelectorAll("a[href]").forEach(mark));
+      document.addEventListener("click", (e) => {
+        const a = e.target instanceof Element && e.target.closest("a[href]");
+        if (a) mark(a);
+      }, true);
+    </script><!-- The back link returns to wherever you came from on this site (with your scroll position).
+         Opened directly, or from another site, it just follows its link to the parent page. --><script>
+      document.addEventListener("click", (e) => {
+        const a = e.target instanceof Element && e.target.closest("a.back");
+        if (!a || e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+        let from;
+        try {
+          from = new URL(document.referrer);
+        } catch {
+          return;
+        }
+        if (from.origin === location.origin && from.href !== location.href && history.length > 1) {
+          e.preventDefault();
+          history.back();
+        }
+      });
+    </script><link rel="stylesheet" href="/_astro/Side.DDgIm-ge.css"></head><body><a class="back" href="/b/baza/events/#baza-silk">← back</a><header class="top"><span class="names"><a class="name" href="/b/">du du</a><a class="name" href="/b/baza/" aria-current="page">BAZA.8ZA</a></span><nav><a href="/">A side ↻</a></nav></header><main><article class="night"><h1>BAZA x SILK present: CAM GIRL</h1><p class="dim">2026-04-24 · DADA, Beijing</p><p class="lineup"><span class="dim">lineup</span> VomitBot · Kumanoi (Live) · Puzzy Stack · CAM GIRL · du du</p><a class="poster-large" href="/_astro/baza-silk.Bk87VZpW_YbNQ9.webp" target="_blank" rel="noopener noreferrer"><img src="/_astro/baza-silk.Bk87VZpW_Z29ik6S.webp" alt="poster: BAZA x SILK present: CAM GIRL" loading="lazy" decoding="async" width="1200" height="1500"></a><!-- TODO(owen): write the description and add photos in this event's file under content/events/ --></article></main></body></html>

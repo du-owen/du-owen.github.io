@@ -1,0 +1,51 @@
+<!DOCTYPE html><html lang="en" data-side="a"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>smallest enclosing circle · Owen Du</title><meta name="description" content="Interactive demo of two randomized smallest-enclosing-circle algorithms."><link rel="icon" href="/favicon.ico?v=7b301701" sizes="any"><link rel="alternate" type="application/rss+xml" title="Owen Du" href="/feed.xml"><!-- Only play the flip when crossing sides; navigation within a side stays instant. --><script>
+      addEventListener("pageswap", (e) => {
+        if (!e.viewTransition || !e.activation || !e.activation.from) return;
+        const side = (url) => {
+          const path = new URL(url).pathname;
+          return path === "/b" || path.startsWith("/b/") ? "b" : "a";
+        };
+        if (side(e.activation.from.url) === side(e.activation.entry.url)) {
+          e.viewTransition.skipTransition();
+        }
+      });
+    </script><!-- External links open in a new tab. Marked on load, and again at click time so links added
+         later (the webring ones, filled in after its script loads) are covered too. --><script>
+      const external = (a) => /^https?:$/.test(a.protocol) && a.origin !== location.origin;
+      const mark = (a) => {
+        if (external(a)) {
+          a.target = "_blank";
+          a.rel = "noopener noreferrer";
+        }
+      };
+      addEventListener("DOMContentLoaded", () => document.querySelectorAll("a[href]").forEach(mark));
+      document.addEventListener("click", (e) => {
+        const a = e.target instanceof Element && e.target.closest("a[href]");
+        if (a) mark(a);
+      }, true);
+    </script><!-- The back link returns to wherever you came from on this site (with your scroll position).
+         Opened directly, or from another site, it just follows its link to the parent page. --><script>
+      document.addEventListener("click", (e) => {
+        const a = e.target instanceof Element && e.target.closest("a.back");
+        if (!a || e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+        let from;
+        try {
+          from = new URL(document.referrer);
+        } catch {
+          return;
+        }
+        if (from.origin === location.origin && from.href !== location.href && history.length > 1) {
+          e.preventDefault();
+          history.back();
+        }
+      });
+    </script><link rel="stylesheet" href="/_astro/Side.DDgIm-ge.css"></head><body><a class="back" href="/#projects">← back</a><header class="top"><span class="names"><a class="name" href="/" aria-current="page">Owen Du</a><a class="name" href="/cv/">cv</a></span><nav><a href="/b/">B side ↻</a></nav></header><main><h1>smallest enclosing circle</h1><p class="dim">2022 · interactive · <a href="/writing/sec/">the blog post</a></p><p>The objective is to find the smallest circle that contains all given points on a canvas. Both implementations here are <strong>randomized algorithms</strong>. They exploit this lemma:</p><blockquote>For any finite P in the plane with |P| ≥ 3 there is a subset Q ⊆ P with |Q| = 3 such that C(Q) = C(P).</blockquote><p>Here P is the set of all points and C(P) its smallest enclosing circle. In every iteration we randomly select |N| points of P and calculate their circle. If it contains all points we are done.</p><div class="sec" data-active="naive"><svg id="sec-canvas" viewBox="0 0 800 600" role="img" aria-label="canvas: click to add points"></svg><noscript><p class="dim">this demo needs javascript.</p></noscript><div class="controls"><p class="dim">click to add points, drag to move them.</p><div class="bar"><span class="dim">mode</span><button data-mode="add" aria-pressed="true">add</button><button data-mode="delete" aria-pressed="false">delete</button><button id="sec-reset">reset</button></div><div class="bar"><span class="dim">algorithm</span><button data-algo="naive" aria-pressed="true">naive</button><button data-algo="smart" aria-pressed="false">smart</button></div><div class="bar"><span class="dim">run</span><button data-speed="250">slow</button><button data-speed="100">medium</button><button data-speed="0">fast</button><button data-speed="instant">instant</button></div><div class="bar"><label for="sec-n">|N| = <output id="sec-n-out">3</output></label><input id="sec-n" type="range" min="3" max="3" value="3"><span class="dim" id="sec-n-hint"></span><span class="dim">iterations: <span id="sec-iter">0</span></span></div></div><!-- hangs in the right margin beside the canvas on wide windows, sits below the controls otherwise --><div class="descs"><div class="desc" data-for="naive"><p class="dim">naive algorithm</p><p>Every iteration guesses a circle from |N| points drawn with an even distribution, until the guess contains all points.</p><pre>while true
+  choose Q ⊆ P with |Q| = |N| randomly
+  calculate C(Q)
+  if P is contained in C(Q)
+    return C(Q)</pre><p>Expected runtime O(n<sup>4</sup>).</p></div><div class="desc" data-for="smart"><p class="dim">smart algorithm</p><p>The naive algorithm is slow because it guesses with an even distribution every iteration. This one doubles the points that lie outside the guessed circle, so the points that matter become more likely to be drawn. The number next to each point is its multiplicity.</p><pre>while true
+  choose Q ⊆ P with |Q| = |N| randomly
+  calculate C(Q)
+  if P is contained in C(Q)
+    return C(Q)
+  double the points of P outside of C(Q)</pre><p>Expected runtime O(n log n), obtained through probabilistic runtime analysis not covered here.</p></div></div></div></main></body></html><script type="module" src="/_astro/sec.astro_astro_type_script_index_0_lang.BmCtntvF.js"></script>
